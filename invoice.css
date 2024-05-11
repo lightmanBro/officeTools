@@ -1,0 +1,154 @@
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h2{
+    background-color: #234599;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  select{
+    padding: .25rem;
+    margin-bottom: .5rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: .25rem;
+    padding-inline: .5rem;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  button {
+    display: block;
+    margin-bottom: 10px;
+    
+  }
+  label{
+    font-size: 1rem;
+  }
+  .type-select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  input,textarea,select {
+   outline: none;
+   border-radius: .25rem;
+   padding: .5rem;
+  }
+  select option{
+    width: inherit;
+    height: inherit;
+  }
+  select option:checked {
+    background-color: lightblue;
+    color: white;
+    font-weight: bold;
+}
+  textarea {
+    display: none;
+    width: 80%;
+    /* Initially hide textarea */
+  }
+
+  #item-list {
+    margin-top: 20px;
+  }
+
+  #item-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #item-list th,
+  #item-list td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  #item-list th {
+    background-color: #f2f2f2;
+  }
+
+  button{
+    background-color: #234599;
+    color: white;
+    border-radius: .25rem;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: 1rem;
+}
+@media only screen and (max-width: 768px) {
+    textarea{
+        width: 100%;
+        margin:auto;
+    }
+}
+
+
+/* container-2 */
+
+.container-2 {
+    width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflow content */
+    position: relative; /* Required for absolute positioning */
+}
+
+.content {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    position: absolute; /* Position absolutely within container */
+    top: 0; /* Align to top */
+    left: 0; /* Start offscreen to the left */
+    transition: left 0.5s ease; /* Smooth transition for left property */
+}
+
+.container.open .content {
+    left: 0; /* Slide in from the left */
+}
+
+.container.closed .content {
+    left: -100%; /* Slide out to the left */
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="./invoice.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Invoice Generator</h2>
+      <div class="type-select">
+        <div>
+            <label for="item-type">Type:</label>
+            
+            <select id="item-type" onchange="toggleInputField()">
+              <option value="goods">Goods</option>
+              <option value="services">Services</option>
+            </select>
+        </div>
+         <div>
+             <label for="company-type">Business</label>
+             <select id="company-type" onchange="toggleInputField()">
+               <option value="goods">Business A</option>
+               <option value="services">Business B</option>
+             </select>
+         </div>
+      </div>
+      <!-- Services textarea -->
+      <textarea id="item-services" placeholder="Service Description" rows="4"></textarea>
+      <!-- Goods input field -->
+      <div class="item-input-boxe">
+        <div style="display: flex;align-items:center; justify-content:space-around;">
+            <div class="item-input">
+                <label for="price">Item:</label>
+                <input type="text" id="item" placeholder="Item" />
+            </div>
+            <div class="price-input">
+                <label for="price">Price:</label>
+                <input type="text" id="price" step="0.01" />
+            </div>
+        </div>
+
+          <div id="quantity-input" style="display: none;">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" />
+          </div>
+      </div>
+      <button onclick="addItem()">Add Item</button>
+      <div id="item-list">
+        <h3>Items</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="item-table-body"></tbody>
+        </table>
+      </div>
+      <button onclick="generateInvoice()">Generate Invoice</button>
+    </div>
+
+    <script>
+      // Function to toggle input field based on selection
+      function toggleInputField() {
+        const itemType = document.getElementById("item-type").value;
+        const goodsInput = document.getElementById("item");
+        const servicesTextarea = document.getElementById("item-services");
+        const quantityInput = document.getElementById("quantity-input");
+
+        // Show/hide input field or textarea based on selection
+        if (itemType === "goods") {
+          goodsInput.style.display = "block";
+          servicesTextarea.style.display = "none";
+          quantityInput.style.display = "block";
+        } else {
+          goodsInput.style.display = "none";
+          servicesTextarea.style.display = "block";
+          quantityInput.style.display = "none";
+        }
+      }
+
+      // Function to add item to the list
+      function addItem() {
+        const itemType = document.getElementById("item-type").value;
+        let item;
+        if (itemType === "goods") {
+          item = document.getElementById("item").value;
+        } else {
+          item = document.getElementById("item-services").value;
+        }
+        const price = parseFloat(document.getElementById("price").value);
+        const quantity = itemType === "goods" ? parseInt(document.getElementById("quantity").value) : 1;
+
+        // Validate inputs
+        if (item.trim() === "" || isNaN(price) || price <= 0 || (isNaN(quantity) && itemType === "goods") || quantity <= 0) {
+          alert("Please enter valid item, price, and quantity (if applicable).");
+          return;
+        }
+
+        // Calculate total
+        const total = price * quantity;
+
+        // Create table row for the item
+        const tableBody = document.getElementById("item-table-body");
+        const newRow = tableBody.insertRow();
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        cell1.textContent = item;
+        cell2.textContent = `$${total.toFixed(2)}`;
+
+        // Clear input fields
+        document.getElementById("item").value = "";
+        document.getElementById("item-services").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("quantity").value = "";
+      }
+
+      // Function to generate invoice
+      function generateInvoice() {
+        const items = [];
+        const tableRows = document.querySelectorAll(
+          "#item-list table tbody tr"
+        );
+
+        // Iterate through table rows and extract item and price
+        tableRows.forEach((row) => {
+          const columns = row.querySelectorAll("td");
+          const item = columns[0].textContent;
+          const price = parseFloat(columns[1].textContent.replace("$", ""));
+          items.push({ item, price });
+        });
+
+        // Send invoice data to backend
+        fetch('http://your-backend-url.com/generate-pdf', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ items: items })
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            // Create a URL for the blob data
+            const url = window.URL.createObjectURL(blob);
+            // Create a link element to trigger the download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'invoice.pdf';
+            // Append the link to the body and trigger the download
+            document.body.appendChild(a);
+            a.click();
+            // Remove the link element
+            document.body.removeChild(a);
+            // Release the object URL
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Error generating invoice:', error);
+            alert('Error generating invoice. Please try again.');
+        });
+      }
+    </script>
+  </body>
+</html>

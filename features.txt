@@ -1,0 +1,5 @@
+Generate invoice and sign, then add a specific Account the user choose for payment to the invoice.
+Genarate qr from text,
+Scan qr to translate,
+Save Bank Account deatils
+Generate Qr from Bank Account details

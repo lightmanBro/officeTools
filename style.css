@@ -1,0 +1,466 @@
+*{
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+body{
+    /* border: .1rem solid tomato; */
+    width: fit-content;
+    /* background-color: #234599; */
+    font-size: 62.5%;
+    padding: 0;
+    margin: auto;
+}
+.container{
+    position: relative;
+}
+.top-container{
+    padding: 1rem;
+}
+.heading{
+    position: sticky;
+    width: 100vw;
+    background-color: #234599;
+    color: white;
+    padding: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.name{
+    font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+}
+.display{
+    /* border: .25rem solid tomato; */
+    margin: auto;
+    width: 20%;
+}
+.display img{
+    width: 100%;
+}
+.inputs{
+    margin-top: 1rem;
+}
+.btn-settings{
+    top: 1.5rem;
+    right:5rem;
+}
+input{
+    width: 30%;
+    border: #234599 .05rem solid;
+    outline: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.btn-group{
+    display: flex;
+    margin: auto;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+button{
+    background-color: #234599;
+    color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.delete-box{
+    /* border: .2rem solid tomato; */
+    text-align: center;
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 25%;
+    width: 20%;
+    border-radius: .5rem;
+    box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);
+}
+.delete-details-title{
+    margin: 1rem 0;
+}
+.action-buttons{
+    padding: 2.5rem 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.action-buttons button{
+    border-radius: .25rem;
+    padding: .5rem;
+}
+#cancel{
+    background-color: tomato;
+}
+.qr,.download,.delete-details-title{
+    font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+.download a{
+    /* border: .1rem solid tomato; */
+    background-color: #e9eefa;
+    padding: .25rem .5rem;
+    margin: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   color: black;
+}
+.bank-data-display{
+    padding: 1rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    transition: ease-in 0.5s;
+    
+}
+.user-bank-data{
+    /* border: #234599 solid .1rem; */
+    background-color: white;
+    width: max-content;
+    padding: 1rem;
+    border-radius: .25rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);
+}
+.title{
+    font-size:2rem;
+    border-bottom: #234599 dotted .1rem;
+}
+.bank-name{
+    font-size: 1.5rem;
+}
+.account-name{
+    font-size: 1.25rem;
+}
+.account-number{
+    font-size: 1rem;
+}
+.title,.bank-name,.account-name,.account-number{
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+.action{
+    display: flex;
+    align-items: center;
+    padding: .15rem;
+    justify-content: space-evenly;
+    
+    /* border: #e9eefa solid .1rem; */
+}
+.action .material-symbols-outlined{
+    padding: .25rem;
+    background-color: #e9eefa;
+    border-radius: 50%;
+}
+.create-btn{
+    background-color: #234599;
+    color: white;
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: .25rem;
+}
+
+.new-details-entry{
+    position: fixed;
+    width: 30%;
+    top: 30%;
+    left: 30%;
+    background-color: white;
+    /* border: #234599 solid .1rem; */
+    border-radius: .5rem;
+    /* border: .2rem solid tomato; */
+    font-family: "Roboto", sans-serif;
+    /* font-weight: 500; */
+    font-style: normal;
+    padding: 1rem;
+    box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);
+    /* text-align: center; */
+}
+.new-details-entry input{
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    border: grey solid .1rem;
+}
+.new-details-entry input::placeholder{
+    text-align: left;
+    font-weight: 0;
+}
+.new-details-entry input:focus{
+    border: #234599 .05rem solid;
+}
+.new-details-entry-title{
+    text-align: center;
+}
+label{
+    color: gray;
+    margin-bottom: .25rem;
+    padding-left: .5rem;
+    /* text-align: left; */
+}
+#user-bank-data button{
+    margin-top: 1rem;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+#close-details-entry button{
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    border:solid black .05rem;
+}
+/* Receipt */
+
+.receipt-display {
+    background-color: #f2f5fc;
+    width: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    gap: 1rem;
+    padding: 1rem;
+   
+}
+.receipt {
+    background-color: white;
+    font-family: monospace; /* Use a monospaced font for the receipt */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    /* border: .1rem solid #000; Border for the receipt */
+    padding: 1rem; /* Padding inside the receipt */
+    width: 300px; 
+    margin: 0 auto; /* Center the receipt horizontally */
+    box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);
+}
+
+.receipt-header {
+    text-align: center; /* Center align header */
+    margin-bottom: 1rem; /* Margin below header */
+}
+
+.receipt-items {
+    border-bottom: 1px dashed #000; /* Dashed border between items */
+    padding-bottom: 1rem; /* Padding below items */
+    margin-bottom: 1rem; /* Margin below items */
+}
+
+.receipt-item {
+    display: flex; /* Use flexbox for item layout */
+    justify-content: space-between; /* Space between item name and price */
+}
+
+.item-name {
+    flex: 1; /* Take up remaining space */
+}
+
+.item-price {
+    flex-shrink: 0; /* Do not shrink price */
+}
+
+/* CSS for mobile devices */
+@media only screen and (max-width: 768px) {
+    /* Your CSS styles for mobile devices here */
+    body {
+      font-size: 1rem;
+    }
+    .inputs{
+        display: flex;
+        align-items: center;
+    }
+    input{
+        width: 80%;
+        margin: auto;
+        font-size: 1rem;
+        padding-inline-start: 1rem;
+        padding: .5rem;
+        flex-wrap: wrap;
+    }
+    input::placeholder{
+        text-align: center;
+    }
+    .new-details-entry input::placeholder{
+        text-align: left;
+        font-weight: 0;
+    }
+    .btn-group{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+    button{
+        width: fit-content;
+        font-size: .75rem;
+        font-weight: normal;
+    }
+    
+    video,image,.bank-data-display{
+        width: 90%;
+        margin: auto;
+    }
+    .display{      
+        /* border: .2rem solid tomato; */
+        display: block;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .bank-data-display{
+        background-color: #f2f5fc;
+        padding: .5rem;
+        border-radius: .5rem;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    .title{
+        font-size:1.25rem;
+    }
+    .bank-name{
+        font-size: 1.1rem;
+    }
+    .account-name{
+        font-size: .85rem;
+    }
+    .account-number{
+        font-size: 1rem;
+    }
+    .new-details-entry{
+        width: 90vw;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .user-bank-data{
+        width: 100%;
+    }
+    .action-buttons{
+        gap: 1rem;
+    }
+    .delete-box{
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        left: 0;
+        right: 0;
+      
+    }
+    .receipt-display{
+
+       width: 100%;
+       height: 100%;
+       flex-direction: column;
+       background-color: #f2f5fc;
+       padding: 1rem
+    }
+    
+    /* Example styles for smaller screens */
+  }
+  
